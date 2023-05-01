@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _moving_object_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\nconsole.log(\"Webpack is working!\")\n\n;\n\n\nwindow.MovingObject = _moving_object_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\n\nconst canvas = document.getElementById('game-canvas');\nconst ctx = canvas.getContext('2d');\n\n\n\n//# sourceURL=webpack://w9d1/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _moving_object_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\nconsole.log(\"Webpack is working!\")\n\n;\n// import Asteroid from \"./asteroid.js\";\n\n\nwindow.MovingObject = _moving_object_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\n\nconst canvas = document.getElementById('game-canvas');\nconst ctx = canvas.getContext('2d');\n\nconst mo = new _moving_object_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n    pos: [30, 30],\n    vel: [10, 10],\n    radius: 20,\n    color: \"#00FF00\"\n  });\n\n  mo.draw(ctx)\n\n// const ass = new Asteroid({ pos: [30, 30] });\n// ass.draw(ctx)\n\n//# sourceURL=webpack://w9d1/./src/index.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mov
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\n// export default MovingObject;\n\nclass MovingObject {\n    constructor(pos,vel,radius,color) {\n        this.pos = pos ;\n        this.vel = vel;\n        this.radius = radius ;\n        this.color = color ;\n    }\n\n    draw(ctx) {\n        ctx.beginPath();\n        ctx.arc(this.pos[0],this.pos[1], this.vel[0],this.vel[1], this.radius, 0, 2 * Math.PI);\n        ctx.fillStyle = this.color;\n        ctx.fill();\n    }\n}\n\n\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MovingObject);\n\n\n//# sourceURL=webpack://w9d1/./src/moving_object.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\n// export default MovingObject;\n\nclass MovingObject {\n    constructor(options) {\n        this.pos = options.pos;\n        this.vel = options.vel;\n        this.radius = options.radius;\n        this.color = options.color;\n    }\n\n    draw(ctx) {\n        ctx.beginPath();\n        ctx.arc(this.pos[0],this.pos[1], this.vel[0],this.vel[1], this.radius, 0, 2 * Math.PI);\n        ctx.fillStyle = this.color;\n        ctx.fill();\n    }\n\n    move(){\n        this.pos[0]+=this.vel[0]\n        this.pos[1]+=this.vel[1]\n    }\n}\n\n\n\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MovingObject);\n\n\n//# sourceURL=webpack://w9d1/./src/moving_object.js?");
 
 /***/ })
 
